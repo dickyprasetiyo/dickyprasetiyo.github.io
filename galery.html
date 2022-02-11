@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Galery | Death Gray</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Favicon
+    ================================================== -->
+    <link rel="death-touch-icon" sizes="180x180" href="assets/img/death-touch.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/death-touch.png">
+    <!-- Stylesheets
+    ================================================== -->
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style>
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+    <header id="masthead" class="site-header site-header-white">
+        <nav id="primary-navigation" class="site-navigation">
+            <div class="container">
+
+                <div class="navbar-header">
+                   
+                    <a href="index.html" class="site-title"><span>Death</span>Gray</a>
+
+                </div><!-- /.navbar-header -->
+
+                <div class="collapse navbar-collapse" id="agency-navbar-collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="index.html">Home</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages<i class="fa fa-caret-down hidden-xs" aria-hidden="true"></i></a>
+
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                              <li><a href="galery.html">Galery</a></li>
+                              <li><a href="blog.html">Story</a></li>
+                            </ul>
+
+                        </li>
+                        <li class="active"><a href="galery.html">Galery</a></li>
+                        <li><a href="blog.html">Story</a></li>
+                        
+                    </ul>
+
+                </div>
+
+            </div>   
+        </nav><!-- /.site-navigation -->
+    </header><!-- /#mastheaed -->
+
+    <div id="hero" class="hero overlay subpage-hero portfolio-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Galery</h1>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Galery</li>
+                </ol>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+    <main id="main" class="site-main">
+
+        <section class="site-section subpage-site-section section-portfolio">
+            <div class="container">
+
+                <ul class="portfolio-sorting list-inline text-center">
+                    <li><a href="#" class="btn btn-gray active" data-group="all">All</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Food&Drink">Food&Drink</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Girl">Girl</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Journey">Journey</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Nature">Nature</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Plant">Plant</a></li>
+                    <li><a href="#" class="btn btn-gray" data-group="Random">Random</a></li>
+                </ul>
+
+                <div id="grid" class="row">
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Food&Drink"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Food&Drink/picture1.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Random"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Random/picture1.jpg"class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Plant"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Plant/Picture1.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture1.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture1.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Plant"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Plant/Picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Food&Drink"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Food&Drink/picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Girl"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Girl/Picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Girl"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Girl/Picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Food&Drink"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Food&Drink/picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Food&Drink"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Food&Drink/picture4.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Food&Drink"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Food&Drink/picture5.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Random"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Random/picture2.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Random"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Random/picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Random"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Random/picture4.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Random"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Random/picture5.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Plant"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Plant/Picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Plant"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Plant/Picture4.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture4.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture5.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture6.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Journey"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Journey/Picture7.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture3.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture4.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture5.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture6.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture7.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture8.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture9.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture10.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-xs-6 " data-groups='["Nature"]'>
+                        <div class="galery-item container1">
+                            <img src="assets/img/galery/Nature/Picture11.jpg" class="img-res" alt="" onclick="onClick(this)">
+                            <h4 class="galery-item-title">Judul Galery</h4>
+                            <h5 class="galery-item-deskripsi">Ini adalah deskripsi gambar, bisa ditulis apa aja disini terserah</h5>
+                            <h5 class="galery-item-footer">Source: Pribadi(17/08/2019)</h5>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-gray" href="#" id="loadMore">Load More</a>
+                </div>
+                <div id="modal01" class="modal" onclick="this.style.display='none'">
+                    <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <div class="modal-content">
+                      <img id="img01" style="max-width:100%">
+                    </div>
+                  </div>
+
+            </div>
+        </section><!-- /.section-portfolio -->
+
+    </main><!-- /#main -->
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <a class="site-title"><span>Death</span>Gray</a>
+                    <p>This website was created to pour out my thoughts</p>
+                    <p>Sorry if something random will be posted here</p>
+                </div>
+                <div class="col-lg-offset-4 col-md-3 col-sm-4 col-md-offset-2 col-sm-offset-0 col-xs-6 ">
+                    <h3>My Contact</h3>
+                    <ul class="list-unstyled contact-links">
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:prasetiyodicky14@gmail.com">prasetiyodicky14@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+6281324845227">+62 (813) 248 452 27 </a></li>
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i><p>Random Place</p></li>
+                    </ul>
+                </div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <h3>Featured links</h3>
+                    <ul class="list-unstyled">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="galery.html">Galery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="social-links">
+                            <a class="twitter-bg" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="facebook-bg" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
+                            <a class="linkedin-bg" href="https://www.linkedin.com/in/dicky-prasetiyo-8a47611ab/"><i class="fa fa-linkedin"></i></a>
+                        </div><!-- /.social-links -->
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="text-right">
+                            <p>&copy; DeathGray</p>
+                            <p>All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.copyright -->
+    </footer><!-- /#footer -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="assets/js/jquery.countTo.min.js"></script>
+    <script src="assets/js/jquery.shuffle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+    }
+    </script>
+  
+</body>
+</html>
