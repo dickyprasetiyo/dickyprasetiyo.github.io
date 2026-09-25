@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stock Portfolio Tracker - Pantau portofolio saham Anda secara real-time">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- TradingView Lightweight Charts -->
+    <script src="https://unpkg.com/lightweight-charts@4.1.0/dist/lightweight-charts.standalone.production.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <title>Dicky Portfolio - Stock Portfolio Tracker</title>
+    
+    <style>
+        /* Additional styles */
+        .price-up { color: #28a745 !important; }
+        .price-down { color: #dc3545 !important; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+                <i class="fas fa-chart-line me-2"></i>Portfolio Tracker
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard" data-bs-toggle="tab" onclick="switchTab('dashboard')">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio" data-bs-toggle="tab" onclick="switchTab('portfolio')">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#journal" data-bs-toggle="tab" onclick="switchTab('journal')">Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#settings" data-bs-toggle="tab" onclick="switchTab('settings')">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mt-5 pt-5">
+        <!-- Tab Navigation -->
+        <div class="nav-tabs mb-4">
+            <button class="nav-link active tab-btn" data-tab="dashboard" onclick="switchTab('dashboard')">
+                <i class="fas fa-chart-simple me-1"></i>Dashboard
+            </button>
+            <button class="nav-link tab-btn" data-tab="portfolio" onclick="switchTab('portfolio')">
+                <i class="fas fa-briefcase me-1"></i>Portfolio
+            </button>
+            <button class="nav-link tab-btn" data-tab="journal" onclick="switchTab('journal')">
+                <i class="fas fa-book me-1"></i>Journal
+            </button>
+            <button class="nav-link tab-btn" data-tab="settings" onclick="switchTab('settings')">
+                <i class="fas fa-cog me-1"></i>Settings
+            </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="tab-content-container">
+            <!-- Content will be loaded dynamically -->
+        </div>
+    </main>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="position-fixed top-0 start-0 w-100 h-100 d-none" style="background: rgba(0,0,0,0.7); z-index: 9999;">
+        <div class="text-center text-white mt-5">
+            <div class="spinner-border text-warning" style="width: 3rem; height: 3rem;"></div>
+            <h5 class="mt-3">Loading...</h5>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="success-toast" class="toast align-items-center text-white bg-success border-0" role="alert">
+            <div class="d-flex">
+                <div class="toast-body" id="toast-message">
+                    Sukses!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalTitle">Konfirmasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="confirmModalMessage">Apakah Anda yakin?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="confirmModalAction">Konfirmasi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white text-center mt-auto" style="margin-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-2">&copy; 2026 Dicky Portfolio Tracker</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted small mb-0">
+                        Data dari Yahoo Finance API &middot; 
+                        <a href="#" onclick="showDisclaimer()" class="text-decoration-none">Disclaimer</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Main App Script -->
+    <script src="assets/js/stock-tracker.js"></script>
+    
+    <script>
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load initial tab
+            switchTab('dashboard');
+            
+            // Auto-refresh data every 60 seconds
+            setInterval(() => {
+                if (currentTab === 'dashboard') {
+                    loadDashboardData();
+                }
+            }, 60000);
+        });
+    </script>
+</body>
+</html>
